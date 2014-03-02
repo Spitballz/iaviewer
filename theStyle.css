@@ -1,0 +1,72 @@
+﻿html, body {
+	height: 100%;
+    font-family: "Play", sans-serif !important;
+}
+
+#mapDiv {
+    min-height: 100%; 
+    max-height: 100%; 
+}
+
+#menu {
+	width: 420px;
+	/*overflow: hidden;
+	overflow:auto;*/
+	display: block;
+	position:absolute;
+	top:55px;
+	right:0;
+	padding: 5px;
+	margin: 5px;
+	z-index: 200;
+	background: #ffffff;
+	-webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+}
+
+#menu-Timeline {
+	clear:both;
+    padding-bottom:5px;
+    padding-left: 5px;
+} 
+
+#timeSlider {
+    width: 250px;
+}
+
+#timeSliderValue {
+    font-size: 18px;
+}
+
+.menu-Visible {
+	height: 85%;
+	background: #ccc;
+    overflow:auto;
+}
+.menu-Hidden {
+    height: 110px;
+	overflow: hidden;
+}
+
+#about-Div {
+	display: block;
+	position: absolute;
+	top:90px;
+	margin-left:15px;
+	z-index: 201;
+	background: rgba(255,255,255,0.7);
+}
+
+.dijitTooltip {
+	width: 125px !important;
+	text-align: center !important;
+}
+
+/* Set minimum width resizing for site
+-------------------------------------------------- */
+body {
+	min-width:480px; /* Set minimum width */
+	width: auto !important; /* Set minimum width */
+	width:480px; /* Set minimum width */		
+}

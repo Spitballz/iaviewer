@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="theViewer">
+    <meta name="author" content="Spitballz">
+    <!-- Safari iOS - apps only -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Chrome for Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="images/brand.png">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>IA Viewer - Code Challenge</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
+    <link href="theStyle.css" rel="stylesheet">
+    <link href="bootstrap-slider.css" rel="stylesheet">
+    <link href="taylor.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="http://js.arcgis.com/3.8/"></script>
+    <script src="theKungFu.js"></script>
+    <script src="bootstrap-slider.js"></script>
+    <script src="typeahead.bundle.min.js"></script>
+    <script src="murray.js"></script>
+    <script src="steve.js"></script>
+    <script src="taylor.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+</head>
+
+<body>
+    <div id="mapDiv" class="max-everything">
+
+       <div id="about-Div" class="panel panel-default">
+          <div><a href="about.html">About</a></div>
+        </div>
+
+        <div id="searchControl" style="position:absolute;z-Index:1500;display:block;right:5px;top:14px;">
+            <div class="controls-container">
+                <input id="search" class="typeahead" type="text" style="width:325px;" placeholder="type a country name" autocomplete="off"/>
+                <button id="searchButton" style="margin-left:4px;margin-top:6px;cursor:pointer;" data-loading-text=" "class="btn btn-small btn-info glyphicon glyphicon-map-marker" onclick="return search();" href="#" title="click to search"></button>
+            </div>
+        </div>
+
+        <div id="menu" class="panel panel-default menu-Hidden">
+            <div id="menu-TopSection">
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-refresh" style="margin-top:8px;cursor:pointer;" onclick="return clearMap();" title="click to clear map"></span>
+                    <span id="togglePanel" class="glyphicon glyphicon-chevron-down" style="margin-right:4px;cursor:pointer;" onclick="return menuCollapseExpand();" title="click to show panel"></span>
+                </div>
+                <div id="menu-TopSection-Clear"> &nbsp </div>
+                <div style="margin-left:5px;margin-bottom:5px;"><strong>Timeline Slider</strong></div>
+                <div class="text-center" title="move slider to update map by year">
+                    <span>2001&nbsp;&nbsp;&nbsp;&nbsp;</span><input type="text" id="timeSlider" data-slider-tooltip="hide"
+                        data-slider-min="2001" data-slider-max="2012" data-slider-value="2006" data-slider-step="1"/><span>&nbsp;&nbsp;&nbsp;&nbsp;2012</span>
+                    <strong><div id="timeSliderValue">2006</div></strong>
+                </div>
+            </div>
+
+            <div id ="menu-Content-Section" style="margin-top:20px;">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                  <li onclick="handleTabChange('year');" class="active" ><a href="#tab-years" data-toggle="tab"><i class="fa fa-signal"></i> All Years</a></li>
+                  <li onclick="handleTabChange('rank');" ><a href="#tab-rank" data-toggle="tab"><i class="fa fa-usd"></i> Ranking</a></li>
+                  <li onclick="handleTabChange('near');" ><a href="#tab-near" data-toggle="tab"><i class="fa fa-exchange"></i> Nearby</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div id="flagDiv"></div>    
+                <div class="tab-content">
+                <div class="tab-pane active" id="tab-years">             
+                    <div id="totalchartNode" style="width:400px;height:300px;"></div>
+                </div>
+                  <div class="tab-pane" id="tab-rank">
+                    <div id="rankingChartNode" style="width:400px;height:300px;"></div>
+                  </div>
+                  <div class="tab-pane" id="tab-near">
+                    <div id="nearbyChartNode" style="width:400px;height:300px;"></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
